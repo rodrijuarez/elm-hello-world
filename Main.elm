@@ -1,5 +1,6 @@
 module Main exposing (..)
 import Html exposing (text)
+import List
 
 type alias Person = 
     { name: String
@@ -19,5 +20,9 @@ people =
         age = 60
     }]
 
+names: List Person -> List String
+
+names persons = List.map (\person -> person.name) persons
+
 main = 
-    text <| toString <| people
+    text <| toString <| names people
