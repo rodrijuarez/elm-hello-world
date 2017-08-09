@@ -1,5 +1,8 @@
 module Main exposing (..)
-import Html exposing (text)
+
+import Html exposing (..)
+
+import Html.Attributes exposing (..)
 
 type alias Ship =
     { name: String
@@ -13,7 +16,25 @@ ships =
     , { name = "Death Star", cost = 300}
     ]
 
-main = 
-    text 
-    <| toString 
-    <| ships
+renderShip ship =
+    li []
+        [ text ship.name
+        , text ", "
+        , b []
+            [text <| toString <| ship.cost]
+        ]
+
+renderShips ships =
+    div [
+        style 
+        [ ("font-familty", "-apple-system")
+        , ("padding", "1em")
+        ]
+    ]
+    [ h1 [] 
+        [ text "Ships"
+        ]
+    , ul [] (List.map renderShip ships)
+    ]
+
+main = renderShips ships
