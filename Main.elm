@@ -1,5 +1,8 @@
 module Main exposing (..)
 import Html exposing (text)
 
+foo =
+    ["one", "two", "three"]
+
 main = 
-    text <| "Hello, your majesty"
+    text <| toString <| foo
