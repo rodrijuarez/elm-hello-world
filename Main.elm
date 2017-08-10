@@ -8,9 +8,9 @@ numbers =
     [ 1, 2, 3, 4, 5 ]
 
 
-printNumbers : Int -> Html msg
-printNumbers int =
-    ul [] [ text <| toString <| int ]
+printThings : thing -> Html msg
+printThings thing =
+    ul [] [ text <| toString <| thing ]
 
 
 fruits =
@@ -18,4 +18,4 @@ fruits =
 
 
 main =
-    ul [] (List.map printNumbers numbers)
+    ul [] (List.map printThings fruits)
