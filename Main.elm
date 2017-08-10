@@ -1,20 +1,14 @@
 module Main exposing (..)
-import Html exposing (text)
 
-politely: String -> String
+import Html exposing (..)
 
-politely phrase = 
-    "Excuse me, " ++ phrase
 
-ask: String -> String -> String
+view =
+    div []
+        [ h1 [] [ text "Face generator" ]
+        , button [] [ text "Face me" ]
+        ]
 
-ask thing place =
-    "is there a " ++ thing ++ " in the " ++place ++ "?"
 
-askPolitelyAboutFish: String -> String
-
-askPolitelyAboutFish =
-    politely << ask "fish"
-
-main = 
-    text <| askPolitelyAboutFish "kitchen"
+main =
+    view
