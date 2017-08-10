@@ -1,14 +1,41 @@
 module Main exposing (..)
 
 import Html exposing (..)
+import Html exposing (beginnerProgram)
+import Html.Events exposing (..)
 
 
-view =
+model =
+    { showFace = False }
+
+
+type Msg
+    = ShowFace
+
+
+update msg model_ =
+    case msg of
+        ShowFace ->
+            if model_.showFace then
+                { model_ | showFace = False }
+            else
+                { model_ | showFace = True }
+
+
+view model_ =
     div []
         [ h1 [] [ text "Face generator" ]
-        , button [] [ text "Face me" ]
+        , button [ onClick ShowFace ] [ text "Face me" ]
+        , if model_.showFace then
+            text ":DDDD"
+          else
+            text ""
         ]
 
 
 main =
-    view
+    beginnerProgram
+        { model = model
+        , update = update
+        , view = view
+        }
