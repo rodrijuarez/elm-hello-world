@@ -1,20 +1,16 @@
 module Main exposing (..)
-import Html exposing (text)
 
-politely: String -> String
+import Html exposing (..)
+import Html.Attributes exposing (..)
 
-politely phrase = 
-    "Excuse me, " ++ phrase
 
-ask: String -> String -> String
+numbers =
+    [ 1, 2, 3, 4, 5 ]
 
-ask thing place =
-    "is there a " ++ thing ++ " in the " ++place ++ "?"
 
-askPolitelyAboutFish: String -> String
+fruits =
+    [ { name = "Orange" }, { name = "Banana" } ]
 
-askPolitelyAboutFish =
-    politely << ask "fish"
 
-main = 
-    text <| askPolitelyAboutFish "kitchen"
+main =
+    ul [] [ text "to do" ]
